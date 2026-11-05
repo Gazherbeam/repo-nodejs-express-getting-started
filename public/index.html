@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f7f3" />
+    <meta name="description" content="A calm, thoughtful workspace for your people and the work they do." />
+    <title>People — Moss &amp; Meadow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/app.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body class="min-h-screen bg-canvas text-ink antialiased">
+    <div class="min-h-screen lg:grid lg:grid-cols-[244px_minmax(0,1fr)]">
+      <aside class="hidden border-r border-line bg-white/70 px-5 py-7 lg:flex lg:flex-col">
+        <a class="flex items-center gap-3 px-2" href="/" aria-label="Moss and Meadow home">
+          <span class="brand-mark grid size-10 place-items-center rounded-2xl bg-moss-700 text-white shadow-soft">
+            <svg viewBox="0 0 24 24" fill="none" class="size-6" aria-hidden="true"><path d="M19.2 4.8C12 4.6 6.4 6.3 5.2 10.8c-.7 2.7 1.5 4.7 4 4.2 4.6-.9 7-5.8 10-10.2Z" fill="currentColor" opacity=".95"/><path d="M4 20c2.4-5.4 6.5-8.3 12.1-10.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <span class="font-display text-[15px] font-extrabold tracking-[-.045em] text-ink">moss<span class="text-moss-600">&amp;</span>meadow</span>
+        </a>
+
+        <div class="mt-11 px-3 text-[10px] font-bold uppercase tracking-[.19em] text-muted">Workspace</div>
+        <nav class="mt-3 space-y-1" aria-label="Main navigation">
+          <a class="nav-link nav-link-active" href="#team" aria-current="page">
+            <svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true"><rect x="3.5" y="4" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.7"/><rect x="13.5" y="4" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.7"/><rect x="3.5" y="14" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.7"/><rect x="13.5" y="14" width="7" height="7" rx="2" stroke="currentColor" stroke-width="1.7"/></svg>
+            <span>People</span><span class="ml-auto rounded-full bg-moss-100 px-2 py-0.5 text-[10px] font-bold text-moss-700" id="sidebar-count">—</span>
+          </a>
+          <a class="nav-link" href="#films" id="films-nav">
+            <svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true"><path d="M5 4.8c2.2-.5 4.5-.3 7 1.2v13c-2.5-1.5-4.8-1.7-7-1.2v-13ZM19 4.8c-2.2-.5-4.5-.3-7 1.2v13c2.5-1.5 4.8-1.7 7-1.2v-13Z" stroke="currentColor" stroke-width="1.65" stroke-linejoin="round"/><path d="M7.5 8.5c1.1-.1 2.1.1 3 .6M7.5 11.5c1.1-.1 2.1.1 3 .6m6-3.6c-1.1-.1-2.1.1-3 .6m3 2.4c-1.1-.1-2.1.1-3 .6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            <span>Little inspirations</span>
+          </a>
+        </nav>
+
+        <div class="mt-auto rounded-[22px] border border-moss-100 bg-moss-50 p-4">
+          <div class="grid size-9 place-items-center rounded-xl bg-white text-moss-700 shadow-sm">
+            <svg viewBox="0 0 24 24" fill="none" class="size-[19px]" aria-hidden="true"><path d="M12 3.5c.6 4.1 2.4 5.9 6.5 6.5-4.1.6-5.9 2.4-6.5 6.5-.6-4.1-2.4-5.9-6.5-6.5 4.1-.6 5.9-2.4 6.5-6.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M19 15.5c.3 2 1.1 2.8 3 3-.1 0-.2 0-.3.1-1.7.3-2.5 1.1-2.7 2.9-.3-1.9-1.1-2.7-3-3 1.9-.3 2.7-1.1 3-3Z" fill="currentColor"/></svg>
+          </div>
+          <p class="mt-4 text-[13px] font-bold text-ink">A little room to grow</p>
+          <p class="mt-1.5 text-xs leading-[1.65] text-muted">Good things happen when people feel seen. Keep their details close and their stories closer.</p>
+          <div class="mt-4 h-1.5 overflow-hidden rounded-full bg-moss-100"><div class="h-full w-2/3 rounded-full bg-moss-500"></div></div>
+          <p class="mt-2 text-[10px] font-semibold tracking-wide text-moss-700">YOUR TEAM, IN FULL BLOOM</p>
+        </div>
+        <div class="mt-5 flex items-center gap-2 px-2 text-[10px] text-muted"><span class="size-2 rounded-full bg-moss-500" id="connection-dot"></span><span id="connection-label">Checking your garden…</span></div>
+      </aside>
+
+      <main class="min-w-0 px-4 pb-12 pt-5 sm:px-7 lg:px-10 lg:pt-8 xl:px-14">
+        <header class="mx-auto flex max-w-[1330px] items-center justify-between">
+          <div class="flex items-center gap-3 lg:hidden">
+            <span class="grid size-9 place-items-center rounded-xl bg-moss-700 text-white"><svg viewBox="0 0 24 24" fill="none" class="size-5" aria-hidden="true"><path d="M19.2 4.8C12 4.6 6.4 6.3 5.2 10.8c-.7 2.7 1.5 4.7 4 4.2 4.6-.9 7-5.8 10-10.2Z" fill="currentColor"/><path d="M4 20c2.4-5.4 6.5-8.3 12.1-10.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            <span class="font-display text-sm font-extrabold tracking-tight">moss&amp;meadow</span>
+          </div>
+          <div class="hidden items-center gap-2 text-xs text-muted sm:flex"><span>Workspace</span><span class="text-[#c0c5ba]">/</span><span class="font-semibold text-ink">People</span></div>
+          <div class="ml-auto flex items-center gap-3">
+            <div class="hidden text-right sm:block"><p class="text-xs font-bold text-ink">Your little corner</p><p class="mt-0.5 text-[10px] text-muted">A lovely day to do good work</p></div>
+            <div class="grid size-10 place-items-center rounded-full border-[3px] border-white bg-[#e6ecdc] text-xs font-extrabold text-moss-800 shadow-soft" title="Workspace profile">M<span class="sr-only">Workspace profile</span></div>
+          </div>
+        </header>
+
+        <div class="mx-auto mt-8 max-w-[1330px]">
+          <section class="hero-panel relative overflow-hidden rounded-[26px] bg-moss-800 px-6 py-7 text-white shadow-panel sm:px-9 sm:py-9 lg:px-11 lg:py-10">
+            <div class="hero-orb hero-orb-one"></div><div class="hero-orb hero-orb-two"></div>
+            <div class="relative z-10 max-w-2xl">
+              <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[.17em] text-[#dce9ce]"><span class="size-1.5 rounded-full bg-[#c4db9e]"></span> A workspace that grows with you</div>
+              <h1 class="mt-5 font-display text-[32px] font-bold leading-[1.08] tracking-[-.055em] sm:text-[42px]">A good team makes<br class="hidden sm:block" /> everything <span class="font-medium italic text-[#c8dea8]">grow.</span></h1>
+              <p class="mt-3 max-w-lg text-sm leading-6 text-[#d0decb]">A little home for the people behind all the good things you do. Meet your team, celebrate their work, and make room for what’s next.</p>
+              <button class="mt-6 inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#e7efdc] px-4 py-2.5 text-xs font-bold text-moss-900 shadow-sm transition hover:-translate-y-0.5 hover:bg-white focus-ring" id="hero-add-button" type="button">
+                <svg viewBox="0 0 24 24" fill="none" class="size-4" aria-hidden="true"><path d="M12 5v14m-7-7h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                Welcome someone new
+              </button>
+            </div>
+            <div class="hero-sun absolute right-[8%] top-[15%] hidden size-24 rounded-full bg-[#d6e7b5]/15 blur-[1px] lg:block"></div>
+            <svg class="hero-leaf absolute bottom-[-64px] right-[4%] hidden h-[310px] w-[310px] text-white/[.07] lg:block" viewBox="0 0 250 250" fill="none" aria-hidden="true"><path d="M216 29C135 24 66 44 49 95c-10 30 14 53 43 47 52-10 79-66 124-113Z" fill="currentColor"/><path d="M34 224c27-61 73-94 136-120" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path d="m94 130-8-50m49 24 8-47m-67 88-47-10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+            <div class="absolute bottom-5 right-7 hidden items-center gap-2 text-[10px] font-semibold tracking-widest text-white/55 lg:flex"><span>GROWING TOGETHER</span><span class="h-px w-9 bg-white/30"></span><span>✳</span></div>
+          </section>
+
+          <section class="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3" aria-label="Team summary">
+            <article class="stat-card"><div><p class="eyebrow">OUR PEOPLE</p><p class="mt-2 font-display text-[30px] font-bold leading-none tracking-[-.06em] text-ink" id="stat-total">—</p><p class="mt-2 text-[11px] text-muted">Good people, doing good things</p></div><div class="stat-icon bg-moss-50 text-moss-700"><svg viewBox="0 0 24 24" fill="none" class="size-[19px]" aria-hidden="true"><path d="M16 20v-1.8a3.7 3.7 0 0 0-3.7-3.7H6.7A3.7 3.7 0 0 0 3 18.2V20m17 0v-1.8a3.7 3.7 0 0 0-3-3.6M9.5 11.5a3.8 3.8 0 1 0 0-7.5 3.8 3.8 0 0 0 0 7.5Zm7.3-7.2a3.8 3.8 0 0 1 0 7.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div></article>
+            <article class="stat-card"><div><p class="eyebrow">HERE &amp; GROWING</p><p class="mt-2 flex items-baseline gap-2 font-display text-[30px] font-bold leading-none tracking-[-.06em] text-ink" id="stat-active">— <span class="text-xs font-semibold tracking-normal text-moss-700">active</span></p><p class="mt-2 text-[11px] text-muted">Showing up and making it happen</p></div><div class="stat-icon bg-[#f0f3e7] text-[#758747]"><svg viewBox="0 0 24 24" fill="none" class="size-[19px]" aria-hidden="true"><path d="M20 7 10 17l-5-5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></div></article>
+            <article class="stat-card"><div><p class="eyebrow">TEAM PAYROLL</p><p class="mt-2 font-display text-[30px] font-bold leading-none tracking-[-.06em] text-ink" id="stat-payroll">—</p><p class="mt-2 text-[11px] text-muted">A little investment in a lot of talent</p></div><div class="stat-icon bg-[#f8f2e7] text-[#ab8450]"><svg viewBox="0 0 24 24" fill="none" class="size-[19px]" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 9.5h17M8 15h3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div></article>
+          </section>
+
+          <div class="mt-7 grid grid-cols-1 items-start gap-5 xl:grid-cols-[minmax(0,1fr)_300px]">
+            <section id="team" class="min-w-0 rounded-[22px] border border-line bg-white shadow-card">
+              <div class="flex flex-col gap-4 border-b border-line px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+                <div><div class="flex items-center gap-2"><h2 class="font-display text-lg font-bold tracking-[-.04em] text-ink">The people who make it happen</h2><span class="grid size-5 place-items-center rounded-full bg-[#eff3e9] text-[10px] text-moss-700">✳</span></div><p class="mt-1 text-[11px] text-muted">All the lovely humans on your team, in one place.</p></div>
+                <button class="button-primary hidden sm:inline-flex" id="add-button" type="button"><svg viewBox="0 0 24 24" fill="none" class="size-4" aria-hidden="true"><path d="M12 5v14m-7-7h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Add a person</button>
+              </div>
+              <div class="flex flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:px-6">
+                <label class="search-box min-w-0 flex-1"><svg viewBox="0 0 24 24" fill="none" class="size-[17px] shrink-0 text-muted" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.3" stroke="currentColor" stroke-width="1.7"/><path d="m15.4 15.4 4.1 4.1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span class="sr-only">Search the team</span><input id="search-input" type="search" placeholder="Find someone by name, role, or email…" autocomplete="off" /></label>
+                <div class="flex items-center gap-2"><span class="text-[10px] font-semibold text-muted">Show</span><select id="status-filter" class="filter-select" aria-label="Filter by status"><option value="all">Everyone</option><option value="1">Active only</option><option value="0">Inactive only</option></select></div>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full min-w-[690px] border-collapse text-left">
+                  <thead><tr class="table-head"><th class="pl-6">TEAMMATE</th><th>ROLE</th><th>ORGANIZATION</th><th>STATUS</th><th class="pr-6 text-right">SALARY</th><th><span class="sr-only">Actions</span></th></tr></thead>
+                  <tbody id="employee-rows"><tr><td class="px-6 py-12 text-center text-sm text-muted" colspan="6"><span class="inline-flex items-center gap-2"><span class="loading-dot"></span> Gathering your people…</span></td></tr></tbody>
+                </table>
+              </div>
+              <div class="flex flex-col gap-2 border-t border-line px-5 py-3.5 text-[10px] text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6"><span id="table-summary">Loading team…</span><span class="inline-flex items-center gap-1.5"><span class="size-1.5 rounded-full bg-moss-500"></span> Your people are in good company</span></div>
+            </section>
+
+            <aside class="overflow-hidden rounded-[22px] border border-[#e9e9dc] bg-[#f4f3e9]" id="films">
+              <div class="flex items-center justify-between px-5 pb-3 pt-5"><div><p class="eyebrow text-[#8a8b70]">A LITTLE INSPIRATION</p><h2 class="mt-1 font-display text-[17px] font-bold tracking-[-.04em] text-ink">Stories to wander into</h2></div><span class="grid size-9 place-items-center rounded-xl bg-white/80 text-[#8a8b70]"><svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true"><path d="M5 4.8c2.2-.5 4.5-.3 7 1.2v13c-2.5-1.5-4.8-1.7-7-1.2v-13ZM19 4.8c-2.2-.5-4.5-.3-7 1.2v13c2.5-1.5 4.8-1.7 7-1.2v-13Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span></div>
+              <div class="film-art relative mx-4 overflow-hidden rounded-[17px] bg-moss-700">
+                <img id="film-image" class="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-500" alt="" />
+                <div class="film-art-overlay absolute inset-0"></div>
+                <div class="film-art-decoration absolute inset-0" aria-hidden="true"><span class="film-moon"></span><span class="film-cloud film-cloud-one"></span><span class="film-cloud film-cloud-two"></span><span class="film-hill film-hill-one"></span><span class="film-hill film-hill-two"></span><span class="film-star star-one">✳</span><span class="film-star star-two">✦</span><span class="film-star star-three">·</span></div>
+                <div class="absolute inset-x-0 bottom-0 z-10 p-4 text-white"><span class="inline-flex rounded-full border border-white/25 bg-black/15 px-2.5 py-1 text-[9px] font-semibold tracking-wide backdrop-blur-sm" id="film-year">A film for the soul</span><h3 class="mt-2 font-display text-[20px] font-bold leading-tight tracking-[-.04em]" id="film-title">A little movie magic</h3><p class="mt-1 line-clamp-2 text-[10px] leading-4 text-white/80" id="film-description">A beautiful story is waiting just around the corner.</p></div>
+              </div>
+              <div class="flex items-center justify-between px-5 py-4"><p class="max-w-[190px] text-[10px] leading-4 text-[#81816e]">A small reminder that a little wonder goes a long way.</p><a id="film-link" href="https://ghibliapi.vercel.app/films" target="_blank" rel="noreferrer" class="grid size-9 shrink-0 place-items-center rounded-full border border-[#e5e3d4] bg-white text-moss-800 transition hover:-translate-y-0.5 hover:shadow-sm" aria-label="Explore Studio Ghibli films"><svg viewBox="0 0 24 24" fill="none" class="size-4" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+            </aside>
+          </div>
+
+          <footer class="mx-auto mt-7 flex max-w-[1330px] flex-col items-center justify-between gap-2 border-t border-line pt-4 text-[10px] text-muted sm:flex-row"><span>Made for good people and the good things they grow.</span><span class="inline-flex items-center gap-1.5"><span class="text-moss-700">✳</span> A little more human, every day</span></footer>
+        </div>
+      </main>
+    </div>
+
+    <div class="modal-backdrop hidden" id="employee-modal" role="presentation">
+      <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="flex items-start justify-between gap-4 border-b border-line px-6 py-5"><div><p class="eyebrow text-moss-700">MAKE ROOM TO GROW</p><h2 class="mt-1 font-display text-xl font-bold tracking-[-.045em] text-ink" id="modal-title">Welcome someone new</h2><p class="mt-1 text-xs text-muted" id="modal-description">Add a teammate to your little corner of the world.</p></div><button class="icon-button" id="close-modal" type="button" aria-label="Close dialog"><svg viewBox="0 0 24 24" fill="none" class="size-[18px]" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+        <form id="employee-form" class="space-y-4 px-6 py-5">
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2"><label class="form-label">First name<input name="first_name" required maxlength="255" autocomplete="given-name" placeholder="e.g. Alex" class="form-input" /></label><label class="form-label">Last name<input name="last_name" required maxlength="255" autocomplete="family-name" placeholder="e.g. Morgan" class="form-input" /></label></div>
+          <label class="form-label">Email address<input name="email" required maxlength="255" type="email" autocomplete="email" placeholder="alex@example.com" class="form-input" /></label>
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2"><label class="form-label">Phone<input name="phone" required maxlength="50" type="tel" autocomplete="tel" placeholder="555-0101" class="form-input" /></label><label class="form-label">Organization<input name="organization" required maxlength="255" placeholder="Your organization" class="form-input" /></label></div>
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2"><label class="form-label">Designation<input name="designation" required maxlength="100" placeholder="What they do" class="form-input" /></label><label class="form-label">Salary<input name="salary" min="0" max="999999999.99" step="0.01" type="number" placeholder="0.00" class="form-input" /></label></div>
+          <label class="flex cursor-pointer items-center gap-2.5 text-xs text-muted"><input name="status" type="checkbox" value="1" checked class="size-4 accent-[#416947]" /> They're an active teammate</label>
+          <p class="hidden rounded-xl bg-rose-50 px-3 py-2.5 text-xs text-rose-700" id="form-error" role="alert"></p>
+          <div class="flex justify-end gap-2 border-t border-line pt-4"><button class="button-secondary" id="cancel-modal" type="button">Maybe later</button><button class="button-primary" id="save-employee" type="submit"><span id="save-label">Add to the team</span><svg viewBox="0 0 24 24" fill="none" class="size-4" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+        </form>
+      </section>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

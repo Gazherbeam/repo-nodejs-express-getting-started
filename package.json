@@ -1,0 +1,28 @@
+{
+  "name": "sampledb-employee-api",
+  "version": "1.0.0",
+  "description": "Express API for the sampleDB employees table, with a Studio Ghibli films proxy.",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/styles.css -o ./public/app.css --minify",
+    "prestart": "npm run build:css",
+    "start": "node index.js",
+    "predev": "npm run build:css",
+    "dev": "node --watch index.js",
+    "test": "node --test",
+    "test:api": "postman collection run postman/SampleDB-API.postman_collection.json"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^18.0.9",
+    "express": "^5.1.0",
+    "mysql2": "^3.14.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "tailwindcss": "^4.1.11"
+  }
+}

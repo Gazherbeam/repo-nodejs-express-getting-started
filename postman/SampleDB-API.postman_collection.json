@@ -1,0 +1,110 @@
+{
+  "info": {
+    "name": "SampleDB Employee API",
+    "description": "Postman smoke and CRUD tests for the SampleDB API. Run requests in order; the collection creates a test employee and soft-deletes it at the end.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "employeeId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Health — database connected",
+      "request": { "method": "GET", "url": "{{baseUrl}}/health" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('returns HTTP 200', function () { pm.response.to.have.status(200); });",
+        "pm.test('database is connected', function () { pm.expect(pm.response.json().database).to.eql('connected'); });"
+      ] } }]
+    },
+    {
+      "name": "List employees",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/employees" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('returns HTTP 200', function () { pm.response.to.have.status(200); });",
+        "pm.test('returns an employee array', function () { pm.expect(pm.response.json().data).to.be.an('array'); });"
+      ] } }]
+    },
+    {
+      "name": "Create a test employee",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"first_name\": \"Postman\",\n  \"last_name\": \"Test\",\n  \"email\": \"postman-{{$guid}}@example.com\",\n  \"phone\": \"555-0199\",\n  \"organization\": \"API Verification\",\n  \"designation\": \"Test Engineer\",\n  \"salary\": 612.5,\n  \"status\": 1\n}", "options": { "raw": { "language": "json" } } },
+        "url": "{{baseUrl}}/api/employees"
+      },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('creates employee with HTTP 201', function () { pm.response.to.have.status(201); });",
+        "pm.test('response includes the created employee', function () {",
+        "  const employee = pm.response.json().data;",
+        "  pm.expect(employee).to.be.an('object');",
+        "  pm.expect(employee.email).to.include('postman-');",
+        "  pm.collectionVariables.set('employeeId', employee.id);",
+        "});"
+      ] } }]
+    },
+    {
+      "name": "Read created employee",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/employees/{{employeeId}}" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('returns HTTP 200', function () { pm.response.to.have.status(200); });",
+        "pm.test('returns the created employee', function () { pm.expect(String(pm.response.json().data.id)).to.eql(String(pm.collectionVariables.get('employeeId'))); });"
+      ] } }]
+    },
+    {
+      "name": "Update created employee",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"designation\": \"Postman Verified Engineer\"\n}", "options": { "raw": { "language": "json" } } },
+        "url": "{{baseUrl}}/api/employees/{{employeeId}}"
+      },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('updates with HTTP 200', function () { pm.response.to.have.status(200); });",
+        "pm.test('designation was updated', function () { pm.expect(pm.response.json().data.designation).to.eql('Postman Verified Engineer'); });"
+      ] } }]
+    },
+    {
+      "name": "Reject invalid employee data",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"first_name\": \"Incomplete\"\n}", "options": { "raw": { "language": "json" } } },
+        "url": "{{baseUrl}}/api/employees"
+      },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('rejects invalid data with HTTP 400', function () { pm.response.to.have.status(400); });",
+        "pm.test('explains validation errors', function () { pm.expect(pm.response.json().errors).to.be.an('array').that.is.not.empty; });"
+      ] } }]
+    },
+    {
+      "name": "Reject malformed employee ID",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/employees/not-an-id" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('rejects malformed ID with HTTP 400', function () { pm.response.to.have.status(400); });"
+      ] } }]
+    },
+    {
+      "name": "Soft-delete test employee",
+      "request": { "method": "DELETE", "url": "{{baseUrl}}/api/employees/{{employeeId}}" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('deletes with HTTP 204', function () { pm.response.to.have.status(204); });"
+      ] } }]
+    },
+    {
+      "name": "Deleted employee is not found",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/employees/{{employeeId}}" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('soft-deleted employee returns HTTP 404', function () { pm.response.to.have.status(404); });"
+      ] } }]
+    },
+    {
+      "name": "Studio Ghibli films proxy",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/films" },
+      "event": [{ "listen": "test", "script": { "type": "text/javascript", "exec": [
+        "pm.test('films endpoint returns HTTP 200', function () { pm.response.to.have.status(200); });",
+        "pm.test('returns a non-empty film array', function () { pm.expect(pm.response.json().data).to.be.an('array').that.is.not.empty; });"
+      ] } }]
+    }
+  ]
+}
